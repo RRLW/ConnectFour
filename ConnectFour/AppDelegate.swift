@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let nib: UINib = UINib(nibName: "MainView", bundle: nil);
+        if let controller: MainViewController = nib.instantiate(withOwner: nil, options: nil)[0] as? MainViewController {
+            let rect: CGRect = UIScreen.main.bounds
+            self.window = UIWindow (frame: rect)
+            self.window!.makeKeyAndVisible()
+            self.window!.rootViewController = controller
+        }
+        
         return true
     }
 
